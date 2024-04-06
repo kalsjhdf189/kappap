@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка авторизации</title>
+    <link href="{% static 'css/uikit.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js/uikit.min.js' %}"></script>
+    <script src="{% static 'js/uikit-icons.min.js' %}"></script>
+</head>
+<body>
+<div class="uk-overlay-primary uk-position-cover"></div>
+    <div class="uk-overlay uk-position-center uk-light">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    <input class="uk-input" type="text" placeholder="Логин" name="login">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="text" placeholder="Пароль" name="password">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <button class="uk-button uk-button-default" name="check_btn">Проверить пользователя</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
